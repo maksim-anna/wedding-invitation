@@ -9,25 +9,6 @@
   box-sizing: border-box;
 }
 
-body, html {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-#about-us .tile-row-wide,
-#about-us .tile-row {
-  width: 100% !important;
-  margin: 0 !important;
-  box-sizing: border-box;
-}
-
-#about-us .tile.is-parent {
-  width: 100% !important;
-  min-width: 0 !important;
-  max-width: 100% !important;
-  box-sizing: border-box;
-}
-
 .hero-names,
 .nama-lengkap,
 .ampersand {
@@ -843,4 +824,22 @@ body.preloader-site {
   vertical-align: middle;
   text-align: center;
   padding: 10px;
+}
+
+@media (max-width: 900px) {
+  #about-us .tile-row-wide {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch !important;
+    width: 100% !important;
+    margin: 0 !important;
+    box-sizing: border-box;
+  }
+  #about-us .tile-row-wide .tile.is-parent {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    box-sizing: border-box;
+  }
 }
