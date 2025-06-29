@@ -39,10 +39,12 @@ window.onscroll = function() {
 };
 
 function scrollFunction() {
+  var toTopBtn = document.getElementById("toTop");
+  if (!toTopBtn) return;
   if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    document.getElementById("toTop").style.display = "block";
+    toTopBtn.style.display = "block";
   } else {
-    document.getElementById("toTop").style.display = "none";
+    toTopBtn.style.display = "none";
   }
 }
 

@@ -1,12 +1,54 @@
 @import url("https://fonts.googleapis.com/css?family=Lato|Raleway|Rouge+Script");
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Raleway', Tahoma, sans-serif;
+  width: 100%;
+  min-height: 100%;
+  scrollbar-width: thin;
+  scrollbar-color: #BC8887 #F4E2E2;
+  overscroll-behavior: none;
+}
+
+body {
+  scrollbar-gutter: stable both-edges;
+}
+
+body::-webkit-scrollbar {
+  width: 8px;
+  background: transparent;
+  transition: background 0.3s;
+}
+body:hover::-webkit-scrollbar,
+body:active::-webkit-scrollbar,
+body:focus::-webkit-scrollbar {
+  background: #F4E2E2;
+}
+body::-webkit-scrollbar-thumb {
+  background: #BC8887;
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+body:not(:hover)::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  background-color: #F4E2E2;
+}
+::-webkit-scrollbar-thumb {
+  box-shadow: inset 0 0 6px #996E6D;
+  background-color: #BC8887;
+}
+
 .has-vertically-aligned-content {
   display: flex;
   flex-direction: column;
   justify-content: center;
-}
-
-* {
-  box-sizing: border-box;
 }
 
 .hero-names,
@@ -17,107 +59,7 @@
   text-shadow: 0 2px 8px rgba(255,255,255,0.15);
 }
 
-/* Показывать скроллбар только при прокрутке (современно и кроссбраузерно) */
-html {
-  scrollbar-width: thin;           /* Firefox */
-  scrollbar-color: #BC8887 #F4E2E2;/* Firefox */
-  overscroll-behavior: none;
-}
-
-body {
-  /* Для Chrome, Edge, Safari */
-  scrollbar-gutter: stable both-edges;
-}
-
-body::-webkit-scrollbar {
-  width: 8px;
-  background: transparent;
-  transition: background 0.3s;
-}
-
-body:hover::-webkit-scrollbar,
-body:active::-webkit-scrollbar,
-body:focus::-webkit-scrollbar {
-  background: #F4E2E2;
-}
-
-body::-webkit-scrollbar-thumb {
-  background: #BC8887;
-  border-radius: 4px;
-  transition: background 0.3s;
-}
-
-body:not(:hover)::-webkit-scrollbar-thumb {
-  background: transparent;
-}
-
-html {
-  font-family: 'Raleway', Tahoma, sans-serif;
-  width: 100%;
-  min-height: 100%;
-}
-
-.header-wrapper {
-  padding-bottom: 30px;
-}
-
-.navbar-item {
-  line-height: 38px;
-  font-weight: 600;
-  letter-spacing: 1px;
-  font-size: 1rem;
-}
-
-.navbar-item.is-active{
-  border-bottom: 2px solid #996E6D;
-}
-
-.a.navbar-item{
-  font-color: #996E6D;
-}
-
-/* Добавьте эти стили в ваш существующий CSS */
-
-.hero .hero-foot .hero-foot--wrapper {
-  margin: 7px auto;
-  height: 50px;
-  overflow-x: auto; /* Разрешаем горизонтальную прокрутку */
-  -webkit-overflow-scrolling: touch; /* Плавный скролл для iOS */
-  white-space: nowrap; /* Запрещаем перенос строк */
-}
-
-.hero .hero-foot .hero-foot--wrapper .columns {
-  display: inline-block; /* Чтобы columns не занимал всю ширину */
-  width: auto; /* Ширина по содержимому */
-}
-
-.hero .hero-foot .hero-foot--wrapper .hero-menu-desktop {
-  display: inline-block; /* Чтобы меню было в строку */
-  width: auto; /* Ширина по содержимому */
-}
-
-.hero .hero-foot .hero-foot--wrapper .hero-menu-desktop ul {
-  white-space: nowrap; /* Запрещаем перенос пунктов меню */
-  padding: 0 20px; /* Добавляем отступы по бокам */
-}
-
-.hero .hero-foot .hero-foot--wrapper .hero-menu-desktop ul li {
-  display: inline-block; /* Пункты в строку */
-  padding: 0 15px; /* Отступы между пунктами */
-}
-
-/* Скрываем scrollbar для более красивого вида (опционально) */
-.hero .hero-foot .hero-foot--wrapper::-webkit-scrollbar {
-  display: none;
-}
-
-.hero .hero-foot .hero-foot--wrapper {
-  -ms-overflow-style: none; /* IE и Edge */
-  scrollbar-width: none; /* Firefox */
-}
-
 .hero {
-  /* background-image: url(https://picsum.photos/id/25/1920/1080); */
   background: linear-gradient(rgba(153, 110, 109, 0.65), rgba(153, 110, 109, 0.65)), 
     rgba(0, 0, 0, 0.55) url("../image/hero_bg.jpg") no-repeat;
   background-attachment: fixed;
@@ -126,8 +68,6 @@ html {
   box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   font-family: 'Raleway', sans-serif;
 }
-
-
 
 .hero .title {
   font-family: 'Rouge Script', sans-serif;
@@ -147,7 +87,6 @@ html {
 .hero .tempatwaktu {
   padding-top: 35px;
   font-size: 1.3rem;
-  
 }
 
 .hero .hero-foot {
@@ -155,7 +94,6 @@ html {
   background: white;
   box-shadow: 0 2px 15px rgba(0, 0, 0, 0.082);
 }
-
 @media (max-width: 599px) {
   .hero .hero-foot {
     display: none;
@@ -165,43 +103,43 @@ html {
 .hero .hero-foot .hero-foot--wrapper {
   margin: 7px auto;
   height: 50px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  white-space: nowrap;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.hero .hero-foot .hero-foot--wrapper::-webkit-scrollbar {
+  display: none;
 }
 
+.hero .hero-foot .hero-foot--wrapper .columns,
 .hero .hero-foot .hero-foot--wrapper .hero-menu-desktop {
-  line-height: 38px;
-  font-weight: 600;
-  letter-spacing: 1px;
-  font-size: 1rem;
+  display: inline-block;
+  width: auto;
 }
-
+.hero .hero-foot .hero-foot--wrapper .hero-menu-desktop ul {
+  white-space: nowrap;
+  padding: 0 20px;
+}
 .hero .hero-foot .hero-foot--wrapper .hero-menu-desktop ul li {
   display: inline-block;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding: 0 15px;
 }
-
 .hero .hero-foot .hero-foot--wrapper .hero-menu-desktop ul li.is-active a {
   border-bottom: 2px solid #996E6D;
 }
-
 .hero .hero-foot .hero-foot--wrapper .hero-menu-desktop ul li a {
   color: #996E6D;
 }
-
 .hero .hero-foot .hero-foot--wrapper .hero-menu-desktop ul li a:hover {
   color: #996E6D;
   transition: all .2s ease-in-out;
   border-bottom: 2px solid #c28285;
 }
 
-
-.space40px{
-  height: 40px;
-}
-
-.space24px{
-  height: 24px;
-}
+.space40px { height: 40px; }
+.space24px { height: 24px; }
 
 .main-content {
   padding-top: 2rem;
@@ -213,28 +151,22 @@ html {
   background-color: #F4E2E2;
   padding: 80px 40px;
 }
-
 .main-content .section-darker {
   background-color: #EDD2D1;
   padding: 80px 40px;
 }
-
 .main-content .section-dark.resume {
   height: 400px;
   padding-top: 60px;
-
 }
-
 @media (max-width: 599px) {
   .main-content .section-dark.resume {
     padding-top: 75px;
   }
 }
-
 .main-content .section-dark.resume .title {
   padding: 20px;
 }
-
 .main-content .section-dark.resume button {
   border: 2px solid #996E6D;
   background: white;
@@ -244,97 +176,74 @@ html {
   font-size: 1rem;
   text-transform: uppercase;
 }
-
 .main-content .section-dark.resume .fa-download {
   color: #996E6D;
 }
-
 .main-content .section-dark.my-work {
   padding: 80px 40px;
 }
-
 .main-content .section-cashbac {
   background-color: rgb(238, 250, 253);
   padding: 80px 40px; 
 }
-
 @media (max-width: 599px) {
   .main-content .section-dark.foto-foto {
     padding: 75px 20px;
   }
 }
-
 .main-content .section-dark.foto-foto .foto-item {
   margin-bottom: 1rem;
-  -webkit-transition: all .1s ease-in-out;
   transition: all .1s ease-in-out;
   border-radius: 5px;
   background-size: cover;
   background-repeat: no-repeat;
   box-shadow: 0 5px 20px rgba(14, 25, 80, 0.3);
 }
-
 .main-content .section-dark.my-work .work-item:hover {
-  -webkit-transform: scale(1.055) translateY(-2px);
   transform: scale(1.055) translateY(-2px);
-  -webkit-box-shadow: 0 2px 25px 0 rgba(30, 30, 30, 0.1);
   box-shadow: 0 2px 25px 0 rgba(30, 30, 30, 0.1);
 }
-
-.section-map {
-  padding: 0 0 0 0 ;
-}
-
+.section-map { padding: 0; }
 .main-content .section-light {
   padding: 80px 40px;
 }
-
 .main-content .section-light.regular-section {
   padding-bottom: 80px;
 }
-
 .main-content .section-light.regular-section .is-larger {
   font-size: 1.2rem;
 }
-
 @media (max-width: 599px) {
   .main-content .section-light.regular-section .about-links {
     text-align: center;
   }
 }
-
 .main-content .section-light.regular-section .right-image img {
   border-radius: 11px;
   margin: 20px;
   box-shadow: 0 5px 20px rgba(14, 25, 80, 0.3);
 }
-
 @media (max-width: 599px) {
   .main-content .section-light.regular-section .right-image img {
     margin: auto;
   }
 }
-
 .main-content .section-light.skills {
   padding: 100px;
 }
-
 @media (max-width: 599px) {
   .main-content .section-light.skills {
     padding: 50px 20px 40px 20px;
     padding-bottom: 20px;
   }
 }
-
 .main-content .section-light.skills h1 {
   padding: 10px;
   font-size: 24px;
 }
-
 .main-content .section-light.contact {
   padding: 80px;
 }
-
 .main-content .section-light.contact button {
   width: 100%;
   color: white;
@@ -343,29 +252,24 @@ html {
   text-transform: uppercase;
   font-family: 'Raleway', sans-serif;
 }
-
 @media (max-width: 599px) {
   .main-content .section-light.contact {
     padding: 80px 40px;
   }
 }
-
 .main-content .section-color.pertanyaan {
   padding: 100px;
   background-color: #996E6D;
   color: white;
 }
-
 .main-content .section-color.pertanyaan .title,
 .main-content .section-color.pertanyaan .subtitle {
   color: white;
 }
-
 .main-content .section-color.pertanyaan i {
   font-size: 3rem;
   padding: 20px;
 }
-
 .main-content .section-title {
   font-family: 'Raleway', sans-serif;
   font-weight: 900;
@@ -380,58 +284,48 @@ html {
   font-family: 'Rouge Script', sans-serif;
   color: #996E6D;
   font-size: 3.5rem;
-  letter-spacing: 0px;
   padding-bottom: 6px;
   line-height: 3.7rem;
 }
 
 .ampersand {
-font-size: 5rem;
-font-family: 'Rouge Script', sans-serif;
-color: #996E6D;
-line-height: 5rem;
-display: inline-block;
-vertical-align: middle;
+  font-size: 5rem;
+  font-family: 'Rouge Script', sans-serif;
+  color: #996E6D;
+  line-height: 5rem;
+  display: inline-block;
+  vertical-align: middle;
 }
 
-.bodytext {
-  font-size: 18px;
-}
-
+.bodytext { font-size: 18px; }
 .waktu {
   font-size: 1.4rem;
   font-family: 'Raleway', sans-serif;
 }
-
 .tanggal-angka {
   font-size: 5rem;
   font-family: 'Raleway', sans-serif;
   font-weight: 900;
   line-height: 1;
 }
-
 .tempat {
   font-size: 1.4rem;
   font-family: 'Raleway', sans-serif;
   margin-bottom: 50px;
 }
 
-
-.has-vertically-align {
-  vertical-align: middle;
-}
+.has-vertically-align { vertical-align: middle; }
 
 .footer {
   bottom: 0;
-  width: 100vw;
-  padding: 10px 10px 10px 10px;
+  width: 100%;
+  padding: 10px;
   line-height: 25px;
   text-align: center;
   vertical-align: middle;
   background: #c28285;
   color: whitesmoke;    
 }
-
 .footer p {
   color: white;
   font-weight: 500;
@@ -439,41 +333,25 @@ vertical-align: middle;
   display: inline-block;
   vertical-align: middle;
 }
-
-
-.main-content .no-padding-top {
-  padding-top: 0px;
-}
-
-.footer img{
-  margin: 10px 0px 10px 10px;
+.footer img {
+  margin: 10px 0 10px 10px;
   display: inline-block;
   max-height: 24px;
   vertical-align: middle;
 }
-
-.footer a .nav-item {
-  color: whitesmoke;
-}
-
-.fa-download {
-  color: #43485c;
-}
-
+.fa-download { color: #43485c; }
 .divider {
   margin: 40px 25px;
   display: inline-block;
   max-height: 60px;
   vertical-align: middle;
 }
-
 .bismillah {
   margin: 25px;
   display: inline-block;
   max-height: 50px;
   vertical-align: middle;
 }
-
 #toTop {
   height: 50px;
   width: 50px;
@@ -491,30 +369,10 @@ vertical-align: middle;
   font-size: 2rem;
   box-shadow: 0 5px 20px rgba(14, 25, 80, 0.3);
 }
+#toTop a { color: white; }
+#toTop:hover { background-color: #BC8887; }
 
-#toTop a {
-  color: white;
-}
-
-#toTop:hover {
-  background-color: #BC8887;
-}
-
-::-webkit-scrollbar {
-  width: 8px;
-  background-color: #F4E2E2;
-}
-
-::-webkit-scrollbar-thumb {
-  box-shadow: inset 0 0 6px #996E6D;
-  -webkit-box-shadow: inset 0 0 6px #996E6D;
-  background-color: #BC8887;
-}
-
-body.preloader-site {
-  overflow: hidden;
-}
-
+body.preloader-site { overflow: hidden; }
 .preloader-wrapper {
   height: 100%;
   width: 100%;
@@ -524,121 +382,68 @@ body.preloader-site {
   left: 0;
   z-index: 9999999;
 }
-
 .preloader-wrapper .preloader {
   position: absolute;
   top: 50%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   width: 120px;
 }
 
-
-.btn-whatsapp:hover {
+.btn-whatsapp,
+.btn-telegram,
+.btn-cta {
+  width: 210px;
+  height: 65px;
   color: white;
-  background-color: #59a543;
   font-size: 1.2rem;
   border-radius: 10px;
-  border: 2px solid #59a543;
-  width:  210px;
-  height: 65px;
   align-items: center;
   margin: 1rem;
 }
-
-
 .btn-whatsapp {
   background-color: #6cc751;
-  width:  210px;
-  height: 65px;
-  color: white;
-  font-size: 1.2rem;
-  border-radius: 10px;  
-  border-left: 1px solid #6cc751;
-  border-right: 1px solid #6cc751;
-  border-top: 1px solid #6cc751;
-  border-bottom: 1px solid #6cc751;
-  align-items: center;
-  margin: 1rem;
+  border: 1px solid #6cc751;
 }
-
-.btn-telegram:hover {
-  color: white;
-  background-color: #4388a5;
-  font-size: 1.2rem;
-  border-radius: 10px;
-  border: 2px solid #4388a5;
-  width:  210px;
-  height: 65px;
-  align-items: center;
-  margin: 1rem;
+.btn-whatsapp:hover {
+  background-color: #59a543;
+  border: 2px solid #59a543;
 }
-
-
 .btn-telegram {
   background-color: #4388a5;
-  width:  210px;
-  height: 65px;
-  color: white;
-  font-size: 1.2rem;
-  border-radius: 10px;  
-  border-left: 1px solid #4388a5;
-  border-right: 1px solid #4388a5;
-  border-top: 1px solid #4388a5;
-  border-bottom: 1px solid #4388a5;
-  align-items: center;
-  margin: 1rem;
-
+  border: 1px solid #4388a5;
 }
-
-
-.btn-cta:hover {
-  color:white;
-  background-color: #bf7877;
-  font-size: 1.2rem;
-  border-radius: 10px;
-  border: 2px solid #bf7877;
-  width:  210px;
-  height: 65px;
-  align-items: center;
-  margin: 1rem;
+.btn-telegram:hover {
+  background-color: #4388a5;
+  border: 2px solid #4388a5;
 }
-
 .btn-cta {
   background-color: #996E6D;
-  width:  210px;
-  height: 65px;
-  color: white;
-  font-size: 1.2rem;
   border: 2px solid #996E6D;
-  border-radius: 10px;
-  align-items: center;
-  margin: 1rem;
+}
+.btn-cta:hover {
+  background-color: #bf7877;
+  border: 2px solid #bf7877;
 }
 
 .cashbac-logo-inline {
   width: 160px;
   vertical-align: middle;
 }
-
 .button-download {
   min-width: 200px;
   height: 55px;
   align-items: center;
   margin: 0.1rem;
-
 }
-
 .voucher-code {
   height: 55px;
   max-width: 180px;
   border: 2px solid #26ade4;
-  border-radius: 10px 0 0 10px  ;
+  border-radius: 10px 0 0 10px;
   font-size: 24px;
   padding: 15px;
 }
-
 .btn-voucher-code {
   height: 55px;
   min-width: 100px;
@@ -651,143 +456,28 @@ body.preloader-site {
   vertical-align: middle;
   color: white;
 }
+.fa-copy { margin-right: 5px; }
+.white { color: ghostwhite; }
+.dusty-pink { color: #D8A9A8; }
+.dusty-pink-lighter { color: #EDD2D1; }
+.dusty-pink-lightest { color: #F4E2E2; }
+.dusty-pink-darker { color: #BC8887; }
+.dusty-pink-darkest { color: #996E6D; }
 
-.fa-copy {
-  margin-right: 5px;
-}
-.white
-{color:ghostwhite}
+.tile { border-radius: 10px; }
 
-
-.dusty-pink {color: #D8A9A8}
-.dusty-pink-lighter {color: #EDD2D1}
-.dusty-pink-lightest {color: #F4E2E2}
-.dusty-pink-darker {color: #BC8887}
-.dusty-pink-darkest {color: #996E6D}
-
-.tile {
-  border-radius: 10px;
-}
-
-
-.foto1 {
-  background-image: linear-gradient(rgba(95, 2, 2, 0.6), rgba(48, 47, 47, 0.3)), url("../image/maksim_main.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat:no-repeat;
-  aspect-ratio: 2/3;
-  min-height: 24rem;
-}
-
-
-.foto2 {
-  background-image: linear-gradient(rgba(95, 2, 2, 0.6), rgba(48, 47, 47, 0.3)), url("../image/maksim_dog.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat:no-repeat;
-  aspect-ratio: 2/3;
-  min-height: 24rem;
-}
-
-.foto3 {
-  background-image: linear-gradient(rgba(95, 2, 2, 0.6), rgba(48, 47, 47, 0.3)), url("../image/maksim_cat.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat:no-repeat;
-  aspect-ratio: 2/3;
-  min-height: 24rem;
-}
-
-.foto4 {
-  background-image: linear-gradient(rgba(95, 2, 2, 0.6), rgba(48, 47, 47, 0.3)), url("../image/anna_happy.jpeg");
-  background-size: cover;
-  background-position: top;
-  background-repeat:no-repeat;
-  aspect-ratio: 2/3;
-  min-height: 24rem;
-}
-
-.foto5 {
-  background-image: linear-gradient(rgba(95, 2, 2, 0.6), rgba(48, 47, 47, 0.3)), url("../image/anna_cute.jpg");
-  background-size: cover;
-  background-position: top;
-  background-repeat:no-repeat;
-  aspect-ratio: 2/3;
-  min-height: 24rem;
-}
-
-.foto6 {
-  background-image: linear-gradient(rgba(95, 2, 2, 0.6), rgba(48, 47, 47, 0.3)), url("../image/anna_smart.jpeg");
-  background-size: cover;
-  background-position: center;
-  background-repeat:no-repeat;
-  aspect-ratio: 2/3;
-  min-height: 24rem;
-}
-
-
-.foto7 {
-  background-image: linear-gradient(rgba(95, 2, 2, 0.6), rgba(48, 47, 47, 0.3)), url("../image/maksim_anna_cute.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat:no-repeat;
-  aspect-ratio: 1;
-  min-height: 24rem;
-}
-
-
-.foto8 {
-  background-image: linear-gradient(rgba(95, 2, 2, 0.6), rgba(48, 47, 47, 0.3)), url("../image/maksim_anna_istanbul.jpeg");
-  background-size: cover;
-  background-position: center;
-  background-repeat:no-repeat;
-  aspect-ratio: 1;
-  min-height: 24rem;
-}
-
-
-.foto9 {
-  background-image: linear-gradient(rgba(95, 2, 2, 0.6), rgba(48, 47, 47, 0.3)), url("../image/maksim_anna_desert2.jpeg");
-  background-size: cover;
-  background-position: center;
-  background-repeat:no-repeat;
-  aspect-ratio: 1;
-  min-height: 24rem;
-}
-
-.foto10 {
-  background-image: linear-gradient(rgba(95, 2, 2, 0.6), rgba(48, 47, 47, 0.3)), url("../image/maksim_anna_chill.jpeg");
-  background-size: cover;
-  background-position: center;
-  background-repeat:no-repeat;
-  aspect-ratio: 1;
-  min-height: 24rem;
-}
-
-
-.foto11 {
-  background-image: linear-gradient(rgba(95, 2, 2, 0.6), rgba(48, 47, 47, 0.3)), url("../image/maksim_anna_funny.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat:no-repeat;
-  aspect-ratio: 1;
-  min-height: 24rem;
-}
-
-
-.foto12 {
-  background-image: linear-gradient(rgba(95, 2, 2, 0.6), rgba(48, 47, 47, 0.3)), url("../image/maksim_anna_sg.jpeg");
-  background-size: cover;
-  background-position: center;
-  background-repeat:no-repeat;
-  aspect-ratio: 1;
-  min-height: 24rem;
-}
-
-
-
-
-
+.foto1 { background-image: linear-gradient(rgba(95, 2, 2, 0.6), rgba(48, 47, 47, 0.3)), url("../image/maksim_main.jpg"); background-size: cover; background-position: center; background-repeat:no-repeat; aspect-ratio: 2/3; }
+.foto2 { background-image: linear-gradient(rgba(95, 2, 2, 0.6), rgba(48, 47, 47, 0.3)), url("../image/maksim_dog.jpg"); background-size: cover; background-position: center; background-repeat:no-repeat; aspect-ratio: 2/3; }
+.foto3 { background-image: linear-gradient(rgba(95, 2, 2, 0.6), rgba(48, 47, 47, 0.3)), url("../image/maksim_cat.jpg"); background-size: cover; background-position: center; background-repeat:no-repeat; aspect-ratio: 2/3; }
+.foto4 { background-image: linear-gradient(rgba(95, 2, 2, 0.6), rgba(48, 47, 47, 0.3)), url("../image/anna_happy.jpeg"); background-size: cover; background-position: top; background-repeat:no-repeat; aspect-ratio: 2/3; }
+.foto5 { background-image: linear-gradient(rgba(95, 2, 2, 0.6), rgba(48, 47, 47, 0.3)), url("../image/anna_cute.jpg"); background-size: cover; background-position: top; background-repeat:no-repeat; aspect-ratio: 2/3; }
+.foto6 { background-image: linear-gradient(rgba(95, 2, 2, 0.6), rgba(48, 47, 47, 0.3)), url("../image/anna_smart.jpeg"); background-size: cover; background-position: center; background-repeat:no-repeat; aspect-ratio: 2/3; }
+.foto7 { background-image: linear-gradient(rgba(95, 2, 2, 0.6), rgba(48, 47, 47, 0.3)), url("../image/maksim_anna_cute.jpg"); background-size: cover; background-position: center; background-repeat:no-repeat; aspect-ratio: 1; }
+.foto8 { background-image: linear-gradient(rgba(95, 2, 2, 0.6), rgba(48, 47, 47, 0.3)), url("../image/maksim_anna_istanbul.jpeg"); background-size: cover; background-position: center; background-repeat:no-repeat; aspect-ratio: 1; }
+.foto9 { background-image: linear-gradient(rgba(95, 2, 2, 0.6), rgba(48, 47, 47, 0.3)), url("../image/maksim_anna_desert2.jpeg"); background-size: cover; background-position: center; background-repeat:no-repeat; aspect-ratio: 1; }
+.foto10 { background-image: linear-gradient(rgba(95, 2, 2, 0.6), rgba(48, 47, 47, 0.3)), url("../image/maksim_anna_chill.jpeg"); background-size: cover; background-position: center; background-repeat:no-repeat; aspect-ratio: 1; }
+.foto11 { background-image: linear-gradient(rgba(95, 2, 2, 0.6), rgba(48, 47, 47, 0.3)), url("../image/maksim_anna_funny.jpg"); background-size: cover; background-position: center; background-repeat:no-repeat; aspect-ratio: 1; }
+.foto12 { background-image: linear-gradient(rgba(95, 2, 2, 0.6), rgba(48, 47, 47, 0.3)), url("../image/maksim_anna_sg.jpeg"); background-size: cover; background-position: center; background-repeat:no-repeat; aspect-ratio: 1; }
 
 .title-foto {
   font-size: 18pt;
@@ -796,13 +486,10 @@ body.preloader-site {
   text-align: left;
   color: white;
 }
-
-
 .subtitle-foto {
   font-family: 'Lato', sans-serif;
   font-weight: 700;
   font-size: 14pt;
-  font-weight: 600;
   margin-top: 15px;
   text-align: left;
   color: white;
@@ -815,13 +502,67 @@ body.preloader-site {
   background-size: initial;
 }
 
-.instagram {
-  color: #996E6D;
-  font-size: 1.25rem;
-  font-weight: 900;
-  margin-top: 0.5rem;
-  display: inline-block;
-  vertical-align: middle;
-  text-align: center;
-  padding: 10px;
+/* Responsive tiles: stack vertically on small screens */
+@media (max-width: 900px) {
+  #about-us .tile.is-ancestor {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+  #about-us .tile.is-parent {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+  #about-us .tile-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  #about-us .tile-row .tile.is-parent {
+    width: 100% !important;
+    min-width: 0;
+    max-width: none;
+  }
+}
+@media (min-width: 901px) {
+  #about-us .tile-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 32px;
+    width: 100%;
+  }
+  #about-us .tile-row .tile.is-parent {
+    width: 300px !important;
+    min-width: 220px;
+    max-width: 340px;
+    flex: 1 1 0;
+  }
+}
+/* Special row for "Мы" section: only horizontal on very wide screens */
+@media (min-width: 1300px) {
+  #about-us .tile-row-wide {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 32px;
+    width: 100%;
+  }
+  #about-us .tile-row-wide .tile.is-parent {
+    width: 400px !important;
+    min-width: 320px;
+    max-width: 500px;
+    flex: 1 1 0;
+  }
+}
+@media (max-width: 1299px) {
+  #about-us .tile-row-wide {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  #about-us .tile-row-wide .tile.is-parent {
+    width: 100% !important;
+    min-width: 0;
+    max-width: none;
+  }
 }
