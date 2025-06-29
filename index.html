@@ -15,19 +15,18 @@
     <link rel="stylesheet" href="https://unpkg.com/bulma-tooltip@0.1.5/dist/bulma-tooltip.min.css" />
     <link rel="stylesheet" type="text/css" href="css/menikah.css" />
     <!-- <link rel="stylesheet" type="text/css" href="css/jquery.countdown.css" /> -->
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <!-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> -->
     <!-- <script src="js/jquery.coundown.js"></script> -->
     <link rel="icon" type="image/png" href="image/favicon.png" />
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23064379-20"></script> -->
+  
     <!-- Begin Script for Countdown -->
-    <script>
+    <!-- <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
       // gtag('config', 'UA-23064379-20');
-    </script>
+    </script> -->
     <!-- End Script for Countdown -->
     
     <!-- FONTS -->
@@ -537,34 +536,6 @@
     </div>
   </div>
 </form>
-<script>
-document.getElementById('rsvp-form').addEventListener('submit', async function(e) {
-  e.preventDefault();
-  const form = e.target;
-  const formData = new FormData();
-  // Замените entry.XXXXXX на свои значения из Google Forms!
-  formData.append('entry.239355274', form.name.value);
-  formData.append('entry.2105850498', form.guests.value);
-  formData.append('entry.644173199', form.phone.value);
-  formData.append('entry.1768196290', form.telegram.value);
-  formData.append('entry.191465624', form.menu.value);
-  formData.append('entry.308605020', form['menu-details'].value);
-  formData.append('entry.1045776405', form.alcohol.value);
-  formData.append('entry.871721484', form['alcohol-details'].value);
-
-  try {
-    const res = await fetch('https://docs.google.com/forms/d/e/1FAIpQLScb9k9qSXGa1mo0tgGpHfGRtMAdqtit6vQ8BtW7Lg6JX9yttA/formResponse', {
-      method: 'POST',
-      body: formData,
-      mode: 'no-cors',
-    });
-      alert('Спасибо за регистрацию! Мы получили вашу информацию.');
-      form.reset();
-  } catch (err) {
-    alert('Ошибка соединения. Попробуйте еще раз.');
-  }
-});
-</script>
 <style>
   #rsvp-form .field {
     flex-direction: column !important;
@@ -578,12 +549,7 @@ document.getElementById('rsvp-form').addEventListener('submit', async function(e
     width: 100%;
   }
 </style>
-<script>
-  document.getElementById('rsvp-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    this.reset();
-  });
-</script>
+
 
 <!-- <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScb9k9qSXGa1mo0tgGpHfGRtMAdqtit6vQ8BtW7Lg6JX9yttA/viewform?embedded=true" width="640" height="1455" frameborder="0" marginheight="0" marginwidth="0">Загрузка…</iframe> -->
          </div>
@@ -681,13 +647,47 @@ document.getElementById('rsvp-form').addEventListener('submit', async function(e
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="js/menikah.js"></script>
-    <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
-    <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script>
       AOS.init({
         easing: "ease-out",
         duration: 800,
       });
     </script>
+    <script>
+document.getElementById('rsvp-form').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const form = e.target;
+  const formData = new FormData();
+  // Замените entry.XXXXXX на свои значения из Google Forms!
+  formData.append('entry.239355274', form.name.value);
+  formData.append('entry.2105850498', form.guests.value);
+  formData.append('entry.644173199', form.phone.value);
+  formData.append('entry.1768196290', form.telegram.value);
+  formData.append('entry.191465624', form.menu.value);
+  formData.append('entry.308605020', form['menu-details'].value);
+  formData.append('entry.1045776405', form.alcohol.value);
+  formData.append('entry.871721484', form['alcohol-details'].value);
+
+  try {
+    const res = await fetch('https://docs.google.com/forms/d/e/1FAIpQLScb9k9qSXGa1mo0tgGpHfGRtMAdqtit6vQ8BtW7Lg6JX9yttA/formResponse', {
+      method: 'POST',
+      body: formData,
+      mode: 'no-cors',
+    });
+      alert('Спасибо за регистрацию! Мы получили вашу информацию.');
+      form.reset();
+  } catch (err) {
+    alert('Ошибка соединения. Попробуйте еще раз.');
+  }
+});
+</script>
+<script>
+  document.getElementById('rsvp-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    this.reset();
+  });
+</script>
   </body>
 </html>
