@@ -18,7 +18,9 @@
     <!-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> -->
     <!-- <script src="js/jquery.coundown.js"></script> -->
     <link rel="icon" type="image/png" href="image/favicon.png" />
-  
+
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
     <!-- Begin Script for Countdown -->
     <!-- <script>
       window.dataLayer = window.dataLayer || [];
@@ -628,26 +630,11 @@
     </div>
     <!-- End Main Content -->
 
-    <!-- Begin Footer -->
-    <!-- <div class="footer">
-      <div class="container">
-        <a href="https://github.com/daengdoang/simple-wedding-invitation" class="has-vertically-align">
-          <p class="has-vertically-align">2025 &copy @daengdoang </p>
-        </a>
-        <a href="https://bulma.io" class="has-vertically-align">
-          <img src="https://bulma.io/images/made-with-bulma.png" alt="Made with Bulma">
-        </a>
-        <a href="https://www.netlify.com">
-          <img src="https://www.netlify.com/img/global/badges/netlify-color-bg.svg" alt="Deploy with Netlify"/>
-        </a>
-      </div>
-    </div> -->
-    <!-- End Footer -->
 
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="js/menikah.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script>
       AOS.init({
@@ -656,38 +643,32 @@
       });
     </script>
     <script>
-document.getElementById('rsvp-form').addEventListener('submit', async function(e) {
-  e.preventDefault();
-  const form = e.target;
-  const formData = new FormData();
-  // Замените entry.XXXXXX на свои значения из Google Forms!
-  formData.append('entry.239355274', form.name.value);
-  formData.append('entry.2105850498', form.guests.value);
-  formData.append('entry.644173199', form.phone.value);
-  formData.append('entry.1768196290', form.telegram.value);
-  formData.append('entry.191465624', form.menu.value);
-  formData.append('entry.308605020', form['menu-details'].value);
-  formData.append('entry.1045776405', form.alcohol.value);
-  formData.append('entry.871721484', form['alcohol-details'].value);
+      document.getElementById('rsvp-form').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const form = e.target;
+        const formData = new FormData();
+        // Замените entry.XXXXXX на свои значения из Google Forms!
+        formData.append('entry.239355274', form.name.value);
+        formData.append('entry.2105850498', form.guests.value);
+        formData.append('entry.644173199', form.phone.value);
+        formData.append('entry.1768196290', form.telegram.value);
+        formData.append('entry.191465624', form.menu.value);
+        formData.append('entry.308605020', form['menu-details'].value);
+        formData.append('entry.1045776405', form.alcohol.value);
+        formData.append('entry.871721484', form['alcohol-details'].value);
 
-  try {
-    const res = await fetch('https://docs.google.com/forms/d/e/1FAIpQLScb9k9qSXGa1mo0tgGpHfGRtMAdqtit6vQ8BtW7Lg6JX9yttA/formResponse', {
-      method: 'POST',
-      body: formData,
-      mode: 'no-cors',
-    });
-      alert('Спасибо за регистрацию! Мы получили вашу информацию.');
-      form.reset();
-  } catch (err) {
-    alert('Ошибка соединения. Попробуйте еще раз.');
-  }
-});
-</script>
-<script>
-  document.getElementById('rsvp-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    this.reset();
-  });
-</script>
+        try {
+          const res = await fetch('https://docs.google.com/forms/d/e/1FAIpQLScb9k9qSXGa1mo0tgGpHfGRtMAdqtit6vQ8BtW7Lg6JX9yttA/formResponse', {
+            method: 'POST',
+            body: formData,
+            mode: 'no-cors',
+          });
+            alert('Спасибо за регистрацию! Мы получили вашу информацию.');
+            form.reset();
+        } catch (err) {
+          alert('Ошибка соединения. Попробуйте еще раз.');
+        }
+      });
+      </script>
   </body>
 </html>
