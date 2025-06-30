@@ -48,7 +48,7 @@
     <!-- Begin Header -->
     <div class="header-wrapper" id="home">
       <!-- Begin Hero -->
-      <section class="hero is-large">
+      <section class="hero is-big">
         <!-- Begin Mobile Nav -->
         <style>
           /* Бежевый фон для мобильного выпадающего меню */
@@ -113,48 +113,19 @@
             <h1 class="subtitle">Приглашение на свадьбу</h1>
             <h2 class="title hero-names">Максим & Анна</h2>
             <h4 class="subtitle tempatwaktu">
-              
                 Пятница, 12 Сентября 2025 
                 </br>
                 LOFT 1860, Тверь
                 </br>
                 Начало в 15:30
-              
             </h4>
           </div>
-          <!-- Start Countdown -->       
-          <!-- <div>
-            <ul id="hitungmundur" >
-              <li><span class="days">00</span><p class="days_text">Дней</p></li>
-              <li class="separator">:</li>
-              <li><span class="hours">00</span><p class="hours_text">Часов</p></li>
-              <li class="separator">:</li>
-              <li><span class="minutes">00</span><p class="minutes_text">Минут</p></li>
-              <li class="separator">:</li>
-              <li><span class="seconds">00</span><p class="seconds_text">Секунд</p></li>
-            </ul>
-            <div class="spasi">
-            </div>
-            <script type="text/javascript">
-              var now = new Date();
-              var day = now.getDate();
-              var month = now.getMonth() + 1;
-              var year = now.getFullYear() + 1;
-          
-              var nextyear = month + '/' + day + '/' + year + ' 07:07:07';
-              var harih = '09/12/2025 16:00:00';
-
-              $('#hitungmundur').countdown({
-                date: harih, // TODO Date format: 07/27/2017 17:00:00
-                offset: +7, // TODO Your Timezone Offset
-                day: 'День',
-                days: 'Дней'
-              }, function () {
-                alert('Свадьба сегодня!');
-              });
-            </script>  
-          </div> -->
-          <!-- End Countdown -->
+          <div class="scroll-down-indicator" aria-label="Прокрутите вниз">
+            <button type="button" id="scroll-down-btn" aria-label="Прокрутить вниз">
+              <span></span>
+            </button>
+          </div>
+          <div style="height: 10px;"></div>
         </div>
         <!-- End Hero Content-->
         <!-- Begin Hero Menu -->
@@ -663,5 +634,6 @@
         }
       });
       </script>
+      <script src="js/scroll-down.js"></script>
   </body>
 </html>
