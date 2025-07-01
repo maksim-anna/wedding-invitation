@@ -59,6 +59,24 @@ body:not(:hover)::-webkit-scrollbar-thumb {
   text-shadow: 0 2px 8px rgba(255,255,255,0.15);
 }
 
+/* Сделать .hero на всю высоту только на мобильных */
+@media (max-width: 599px) {
+  .hero {
+    min-height: 100vh;
+    height: 100vh;
+    position: relative;
+  }
+}
+@media (min-width: 600px) {
+  .hero {
+    min-height: unset;
+    height: auto;
+  }
+  .scroll-down-indicator {
+  display: none;
+  }
+}
+
 .hero {
   background: linear-gradient(rgba(153, 110, 109, 0.65), rgba(153, 110, 109, 0.65)), 
     rgba(0, 0, 0, 0.55) url("../image/hero_bg.jpg") no-repeat;
@@ -505,7 +523,7 @@ body.preloader-site { overflow: hidden; }
 }
 
 /* Responsive tiles: stack vertically on small screens */
-@media (max-width: 600px) {
+@media (max-width: 720px) {
   #about-us .tile.is-ancestor {
     flex-direction: column !important;
     align-items: stretch !important;
@@ -525,49 +543,46 @@ body.preloader-site { overflow: hidden; }
     max-width: none;
   }
 }
-@media (min-width: 601px) {
+@media (min-width: 721px) {
   #about-us .tile-row {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    gap: 32px;
+    gap: 4vw; /* расстояние между фото теперь зависит от ширины экрана */
     width: 100%;
   }
   #about-us .tile-row .tile.is-parent {
-    width: 300px !important;
+    width: 28vw !important;      /* фото занимают примерно 28% ширины экрана */
     min-width: 220px;
     max-width: 340px;
     flex: 1 1 0;
   }
-}
-/* Special row for "Мы" section: only horizontal on very wide screens */
-@media (min-width: 1300px) {
-  #about-us .tile-row-wide {
+  .carousel-container {
+    overflow: visible;
+  }
+  .carousel-track {
     display: flex;
     flex-direction: row;
+    overflow-x: visible;
+    scroll-snap-type: none;
+    gap: 4vw; /* расстояние между фото теперь зависит от ширины экрана */
     justify-content: center;
-    gap: 32px;
-    width: 100%;
   }
-  #about-us .tile-row-wide .tile.is-parent {
-    width: 400px !important;
-    max-width: 500px;
+  .carousel-track > .tile.is-parent {
     flex: 1 1 0;
+    min-width: 220px;
+    max-width: 340px;
+    width: 28vw;
+    margin-right: 0;
+    scroll-snap-align: none;
+  }
+  .carousel-dots {
+    display: none;
+  }
+  .scroll-down-indicator {
+    display: none !important;
   }
 }
-@media (max-width: 1299px) {
-  #about-us .tile-row-wide {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-  }
-  #about-us .tile-row-wide .tile.is-parent {
-    width: 100% !important;
-    min-width: 0;
-    max-width: none;
-  }
-}
-
 @media (max-width: 330px) {
   .main-content .section-light,
   .main-content .section-dark,
@@ -640,20 +655,74 @@ body.preloader-site { overflow: hidden; }
   }
 }
 
-/* Сделать .hero на всю высоту только на мобильных */
-@media (max-width: 599px) {
-  .hero {
-    min-height: 100vh;
-    height: 100vh;
+@media (max-width: 720px) {
+  .carousel-container {
+    width: 100%;
+    overflow: hidden;
     position: relative;
+    margin-bottom: 20px;
+  }
+  .carousel-track {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 0;
+    scrollbar-width: none;
+  }
+  .carousel-track::-webkit-scrollbar {
+    display: none;
+  }
+  .carousel-track > .tile.is-parent {
+    flex: 0 0 100%;
+    max-width: 100%;
+    min-width: 100%;
+    scroll-snap-align: center;
+    margin-right: 0;
+  }
+  .carousel-dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    gap: 8px;
+  }
+  .carousel-dot {
+    width: 15px;
+    height: 15px;
+    background: #c28285;
+    border-radius: 50%;
+    opacity: 0.4;
+    transition: opacity 0.2s;
+  }
+  .carousel-dot.active {
+    opacity: 1;
+    background: #996E6D;
   }
 }
-@media (min-width: 600px) {
-  .hero {
-    min-height: unset;
-    height: auto;
+@media (min-width: 721px) {
+  .carousel-container {
+    overflow: visible;
+  }
+  .carousel-track {
+    display: flex;
+    flex-direction: row;
+    overflow-x: visible;
+    scroll-snap-type: none;
+    gap: 1vw; 
+    justify-content: center;
+  }
+  .carousel-track > .tile.is-parent {
+    flex: 1 1 0;
+    min-width: 220px;
+    max-width: 340px;
+    width: 28vw;
+    margin-right: 0;
+    scroll-snap-align: none;
+  }
+  .carousel-dots {
+    display: none;
   }
   .scroll-down-indicator {
-  display: none;
+    display: none !important;
   }
 }
